@@ -1,0 +1,10 @@
+.bg-color {
+    background-color: rgba(45, 199, 199, 0.37) !important;
+}
+.error-message {
+    color: red;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-style: italic;
+}
