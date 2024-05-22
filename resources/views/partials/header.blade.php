@@ -58,8 +58,20 @@
                         </li>
                     </ul>
                     <div class="navbar-nav ml-auto">
+                        @if (null !== session('customer'))
+                        <div class="dropdown">
+                            <button class="btn btn-outline-info" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="">Thông tin</a></li>
+                                <li><a class="dropdown-item" href="{{ route('auth.logoutCustomer') }}">Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                        @else 
                         <a href="/login" type="button" class="nav-link btn btn-outline-info">Đăng Nhập</a>
                         <a href="/register" type="button" class="nav-link btn btn-outline-info ms-2">Đăng Ký</a>
+                        @endif
                     </div>
                     
                 </div>

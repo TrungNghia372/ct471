@@ -8,7 +8,7 @@ use App\Http\Middleware\AuthenticateMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 
 Route::get('dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index')->middleware(AuthenticateMiddleware::class);
@@ -18,6 +18,7 @@ Route::get('login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('doLogin', [AuthController::class, 'doLogin'])->name('auth.doLogin');
 //Logout
 Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('logoutCustomer', [AuthController::class, 'logoutCustomer'])->name('auth.logoutCustomer');
 //Register
 Route::get('register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('doRegister', [AuthController::class, 'doRegister'])->name('auth.doRegister');
