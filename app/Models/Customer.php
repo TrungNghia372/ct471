@@ -27,6 +27,8 @@ class Customer extends Authenticatable
         'remember_token',
     ];
 
+    protected $primaryKey = 'customer_id';
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
