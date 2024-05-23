@@ -67,7 +67,7 @@
                                 <td>{{ $customer->address }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('management.goEdit', $customer->customer_id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ route('management.goDelete', $customer->customer_id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -75,7 +75,6 @@
                     </tbody>
                 </table>
                 <div class="text-center">{{ $customers->links('pagination::bootstrap-4') }}</div>
-                
             </div>
         </div>
     </div>

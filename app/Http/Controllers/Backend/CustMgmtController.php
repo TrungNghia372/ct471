@@ -15,7 +15,6 @@ class CustMgmtController extends Controller {
     }
 
     public function index() {
-        
         $customers =Customer::paginate(10);
 
         if ($customers) {
@@ -84,6 +83,25 @@ class CustMgmtController extends Controller {
             'district',
             'ward',
         ));
+    }
+
+    public function GoDelete($id) {
+        $customers = Customer::findOrFail($id);
+
+        $template = 'backend.management.deleteCustomer';
+        return view('backend.dashboard.layout', compact(
+            'template',
+            'customers',
+        ));
+    }
+
+    public function delete(Request $request, $id) {
+        $customers = Customer::findOrFail($id);
+
+        $deleted = $customers->delete();
+
+        return redirect()->route('management.customer')->with('success', 'Xoá tài khoản khách hàng thành công');
+
     }
 
     private function formatDate($date)
