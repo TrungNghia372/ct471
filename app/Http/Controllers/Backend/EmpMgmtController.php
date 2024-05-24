@@ -6,35 +6,36 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Customer;
+use App\Models\Employee;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
-class CustMgmtController extends Controller {
+class EmpMgmtController extends Controller {
     public function __construct() {
 
     }
 
     public function index() {
-        $customers =Customer::paginate(10);
+        $employees = Employee::paginate(10);
 
-        if ($customers) {
-            foreach ($customers as $customer) {
-                $customer->date_of_birth = $this->formatDate($customer->date_of_birth);
+        if($employees) {
+            foreach($employees as $employee) {
+                $employee->hire_date = $this->formatDate($employee->hire_date);
+                $employee->date_of_birth = $this->formatDate($employee->date_of_birth);
             }
         } else {
-            $customers = collect();
+            $employees = collect();
         }
 
-        $template = 'backend.management.customer.customer';
+        $template = 'backend.management.employee.employee';
         return view('backend.dashboard.layout', compact(
             'template',
-            'customers',
+            'employees',
         ));
     }
 
     public function goInsert() {
-        $template = 'backend.management.customer.insertCustomer';
+        $template = 'backend.management.employee.insertEmployee';
         return view('backend.dashboard.layout', compact(
             'template',
         ));
@@ -45,10 +46,12 @@ class CustMgmtController extends Controller {
             return redirect()->back()->withInput()->with('error', 'Mật khẩu nhập lại không khớp');
         }
 
-        $customerData = [
+        $employeeData = [
             'fullname' => $request->input('fullName'),
             'gender' => $request->input('gender'),
+            'hire_date' => $request->input('hire_date'),
             'date_of_birth' => $request->input('date'),
+            'salary' => $request->input('salary'),
             'phone' => $request->input('phone'),
             'national_id' => $request->input('national_id'),
             'email' => $request->input('email'),
@@ -57,22 +60,23 @@ class CustMgmtController extends Controller {
             
         ];
 
-        $customer = Customer::create($customerData);
+        $employee = Employee::create($employeeData);
 
-        return redirect()->route('management.customer')->with('success', 'Thêm khách hàng thành công');
+        return redirect()->route('management.employee')->with('success', 'Thêm nhân viên thành công');
     }
 
     public function goEdit($id) {
-        $customers = Customer::findOrFail($id); /**Tìm khách hàng theo id */
-        $address = $customers->address;
+        $employees = Employee::findOrFail($id);
+        $employees = Employee::findOrFail($id); /**Tìm khách hàng theo id */
+        $address = $employees->address;
         $separator = " - ";
         $addressParts = explode($separator, $address);
         list($ward, $district, $province) = $addressParts;
 
-        $template = 'backend.management.customer.editCustomer';
+        $template = 'backend.management.employee.editEmployee';
         return view('backend.dashboard.layout', compact(
             'template',
-            'customers',
+            'employees',
             'province',
             'district',
             'ward',
@@ -80,35 +84,41 @@ class CustMgmtController extends Controller {
     }
 
     public function edit(Request $request, $id) {
-        $customers = Customer::findOrFail($id); /**Tìm khách hàng theo id */
-        $address = $customers->address;
+        $employees = Employee::findOrFail($id);
+        $address = $employees->address;
         $separator = " - ";
         $addressParts = explode($separator, $address);
         list($ward, $district, $province) = $addressParts;
 
-        $fields = ['fullName', 'email', 'gender', 'phone', 'national_id'];
+        $fields = ['fullName', 'email', 'hire_date', 'gender', 'phone', 'national_id'];
         foreach ($fields as $field) {
             if ($request->has($field)) {
-                $customers->{$field} = $request->input($field);
+                $employees->{$field} = $request->input($field);
             }
         }
 
         if ($request->has('date')) {
-            $customers->date_of_birth = $request->input('date');
+            $employees->date_of_birth = $request->input('date');
+        }
+        if ($request->has('password1')) {
+            $employees->password = $request->input('password1');
+        }
+        if ($request->has('salary')) {
+            $employees->salary = $request->input('salary');
         }
 
         if ($request->has('ward') && $request->has('district') && $request->has('province')) {
-            $customers->address = $request->input('ward') . ' - ' . $request->input('district') . ' - ' . $request->input('province');
+            $employees->address = $request->input('ward') . ' - ' . $request->input('district') . ' - ' . $request->input('province');
         }
         
-        $customers->save();
+        $employees->save();
 
-        return redirect()->route('management.customer')->with('success', 'Cập nhật thông tin thành công');
+        return redirect()->route('management.employee')->with('success', 'Cập nhật thông tin thành công');
 
-        $template = 'backend.management.customer.editCustomer';
+        $template = 'backend.management.employee.editEmployee';
         return view('backend.dashboard.layout', compact(
             'template',
-            'customers',
+            'employees',
             'province',
             'district',
             'ward',
@@ -116,22 +126,21 @@ class CustMgmtController extends Controller {
     }
 
     public function goDelete($id) {
-        $customers = Customer::findOrFail($id);
+        $employees = Employee::findOrFail($id);
 
-        $template = 'backend.management.customer.deleteCustomer';
+        $template = 'backend.management.employee.deleteEmployee';
         return view('backend.dashboard.layout', compact(
             'template',
-            'customers',
+            'employees',
         ));
     }
 
     public function delete(Request $request, $id) {
-        $customers = Customer::findOrFail($id);
+        $employees = Employee::findOrFail($id);
 
-        $deleted = $customers->delete();
+        $employees->delete();
 
-        return redirect()->route('management.customer')->with('success', 'Xoá tài khoản khách hàng thành công');
-
+        return redirect()->route('management.employee')->with('success','Xóa tài khoản nhân viên thành công');
     }
 
     private function formatDate($date)

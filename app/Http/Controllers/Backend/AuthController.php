@@ -53,7 +53,7 @@ class AuthController extends Controller {
         $request->session()->forget('customer');
         // $request->session('customer')->invalidate();
         $request->session('customer')->regenerateToken();
-        return redirect()->route('auth.login');
+        return redirect()->route('auth.login')->with('success', 'Đăng xuất thành công');
     }
 
     //Đăng ký

@@ -17,7 +17,18 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Danh sách khách hàng</h5>
+                <h5 style="margin-top: 10px">Danh sách khách hàng</h5>
+                <div class="row">
+                    <div class="d-flex me-4">
+                        <div class="input-group me-2">
+                            <input type="text" class="form-control" name="" value="" placeholder="Nhập nội dung tìm kiếm">
+                            <span class="input-group-btn">
+                                <button type="submit" name="search" value="search" class="btn btn-primary">Tìm kiếm</button>
+                            </span>
+                        </div>
+                        <a href="{{ route('goInsertCustomer') }}" class="btn btn-primary ms-5">Thêm khách hàng</a>
+                    </div>
+                </div>
                 {{-- <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -42,14 +53,14 @@
                     <thead>
                         <tr>
                             <th class="text-center">STT</th>
-                            <th class=" text-center">Họ và tên</th>
-                            <th class=" text-center">Ngày sinh</th>
-                            <th class=" text-center">Giới tính</th>
+                            <th class="text-center">Họ và tên</th>
+                            <th class="text-center">Ngày sinh</th>
+                            <th class="text-center">Giới tính</th>
                             <th class="col-lg-2 text-center">Email</th>
-                            <th class=" text-center">Số điện thoại</th>
-                            <th class=" text-center">CCCD</th>
+                            <th class="text-center">Số điện thoại</th>
+                            <th class="text-center">Số CCCD</th>
                             <th class="col-lg-3 text-center">Địa chỉ</th>
-                            <th class=" text-center">Thao tác</th>
+                            <th class="text-center">Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,16 +69,16 @@
                             @foreach($customers as $customer)
                             <tr>
                                 <td class="text-center">{{ $stt++ }}</td>
-                                <td>{{ $customer->fullname }}</td>
-                                <td>{{ $customer->date_of_birth }}</td>
-                                <td>{{ $customer->gender }}</td>
-                                <td>{{ $customer->email }}</td>
-                                <td>{{ $customer->phone }}</td>
-                                <td>{{ $customer->national_id }}</td>
+                                <td class="text-center">{{ $customer->fullname }}</td>
+                                <td class="text-center">{{ $customer->date_of_birth }}</td>
+                                <td class="text-center">{{ $customer->gender }}</td>
+                                <td >{{ $customer->email }}</td>
+                                <td class="text-center">{{ $customer->phone }}</td>
+                                <td class="text-center">{{ $customer->national_id }}</td>
                                 <td>{{ $customer->address }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('management.goEdit', $customer->customer_id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ route('management.goDelete', $customer->customer_id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ route('goEditCustomer', $customer->customer_id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('goDeleteCustomer', $customer->customer_id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach
