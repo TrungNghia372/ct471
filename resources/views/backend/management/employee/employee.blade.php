@@ -26,7 +26,7 @@
                                 <button type="submit" name="search" value="search" class="btn btn-primary">Tìm kiếm</button>
                             </span>
                         </div>
-                        <a href="{{ route('goInsertEmployee') }}" class="btn btn-primary ms-5">Thêm nhân viên</a>
+                        <a href="{{ route('goInsertEmployee') }}" class="btn btn-primary ms-1">Thêm nhân viên</a>
                     </div>
                 </div>
                 {{-- <div class="ibox-tools">

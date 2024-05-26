@@ -48,6 +48,14 @@ return [
             'driver' => 'session',
             'provider' => 'employees',
         ],
+        'roomtype' => [
+            'driver' => 'session',
+            'provider' => 'roomtypes',
+        ],
+        'room' => [
+            'driver' => 'session',
+            'provider' => 'rooms',
+        ],
     ],
 
     /*
@@ -79,6 +87,13 @@ return [
         'employees' => [
             'driver' => 'eloquent',
             'model' => App\Models\Employee::class,
+        ],
+        'roomtypes' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\RoomType::class,
+        ],'rooms' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Room::class,
         ],
 
         // 'users' => [

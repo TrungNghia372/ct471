@@ -66,7 +66,6 @@ class EmpMgmtController extends Controller {
     }
 
     public function goEdit($id) {
-        $employees = Employee::findOrFail($id);
         $employees = Employee::findOrFail($id); /**Tìm khách hàng theo id */
         $address = $employees->address;
         $separator = " - ";
@@ -143,8 +142,7 @@ class EmpMgmtController extends Controller {
         return redirect()->route('management.employee')->with('success','Xóa tài khoản nhân viên thành công');
     }
 
-    private function formatDate($date)
-    {
+    private function formatDate($date) {
         return Carbon::parse($date)->format('d/m/Y');
     }
 }

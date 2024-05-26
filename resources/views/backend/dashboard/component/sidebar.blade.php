@@ -28,10 +28,13 @@
                 <ul class="nav nav-second-level">
                     <li><a href="{{ route('management.customer') }}">Quản lý khách hàng</a></li>
                     <li><a href="{{ route('management.employee') }}">Quản lý nhân viên</a></li>
-                    <li><a href="">Quản lý phòng</a></li>
+                    <li><a href="{{ route('management.roomType') }}">Quản lý phòng</a></li>
                     <li><a href="">Quản lý dịch vụ</a></li>
                     {{-- <li><a href="dashboard_5.html">...</a></li> --}}
                 </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">Xem phòng</span></a>
             </li>
             {{-- <li>
                 <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
@@ -60,7 +63,7 @@
             </li>
             <li>
                 <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
-            </li>
+            </li> 
             <li>
                 <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
