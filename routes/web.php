@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\CustMgmtController;
 use App\Http\Controllers\Backend\EmpMgmtController;
 use App\Http\Controllers\Backend\RoomMgmtController;
+use App\Http\Controllers\Backend\SvcMgmtController;
 
 
 
@@ -82,3 +83,15 @@ Route::get('dashboard/index', [DashboardController::class, 'index'])->name('dash
         Route::get('management/deleteRoom/{room_id}', [RoomMgmtController::class, 'goDeleteRoom'])->name('goDeleteRoom');
         Route::delete('management/deleteRoom/{room_id}', [RoomMgmtController::class, 'deleteRoom'])->name('management.deleteRoom');
 
+/**Service */
+    /**Go to service management page */
+    Route::get('management/service', [SvcMgmtController::class, 'index'])->name('management.service');
+    /**Insert Service */
+    Route::get('management/insertSvc', [SvcMgmtController::class, 'goInsertService'])->name('goInsertService');
+    Route::post('management/insertSvc', [SvcMgmtController::class, 'insertService'])->name('management.insertService');
+    /**Edit Service */
+    Route::get('management/editSvc/{service_id}', [SvcMgmtController::class, 'goEditService'])->name('goEditService');
+    Route::post('management/editSvc/{service_id}', [SvcMgmtController::class, 'editService'])->name('management.editService');
+    /**Delete Service */
+    Route::get('management/deleteService/{service_id}', [SvcMgmtController::class, 'goDeleteService'])->name('goDeleteService');
+    Route::delete('management/deleteService/{service_id}', [SvcMgmtController::class, 'deleteService'])->name('management.deleteService');

@@ -29,7 +29,7 @@
                     <li><a href="{{ route('management.customer') }}">Quản lý khách hàng</a></li>
                     <li><a href="{{ route('management.employee') }}">Quản lý nhân viên</a></li>
                     <li><a href="{{ route('management.roomType') }}">Quản lý phòng</a></li>
-                    <li><a href="">Quản lý dịch vụ</a></li>
+                    <li><a href="{{ route('management.service') }}">Quản lý dịch vụ</a></li>
                     {{-- <li><a href="dashboard_5.html">...</a></li> --}}
                 </ul>
             </li>
