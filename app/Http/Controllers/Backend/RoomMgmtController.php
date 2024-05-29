@@ -7,6 +7,8 @@ use App\Http\Requests\AuthRequest;
 use App\Models\RoomType;
 use App\Models\Room;
 use App\Models\RoomImage;
+use App\Models\Customer;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -21,18 +23,31 @@ class RoomMgmtController extends Controller
 /**Room Type */
     public function roomType() {
         $roomTypes = RoomType::paginate(10);
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
 
         $template = 'backend.management.room.roomType';
         return view('backend.dashboard.layout', compact(
             'template',
             'roomTypes',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
     public function goInsertRoomType() {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $template = 'backend.management.room.insertRoomType';
         return view('backend.dashboard.layout', compact(
             'template',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -49,11 +64,18 @@ class RoomMgmtController extends Controller
     }
 
     public function goEditRoomType($id) {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $roomTypes = RoomType::findOrFail($id);
         $template = 'backend.management.room.editRoomType';
         return view('backend.dashboard.layout', compact(
             'template',
-            'roomTypes'
+            'roomTypes',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -80,11 +102,17 @@ class RoomMgmtController extends Controller
 
     public function goDeleteRoomType($id) {
         $roomTypes = RoomType::findOrFail($id);
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
 
         $template = 'backend.management.room.deleteRoomType';
         return view('backend.dashboard.layout', compact(
             'template',
             'roomTypes',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -99,15 +127,25 @@ class RoomMgmtController extends Controller
 /**Room */
     public function room() {
         $rooms = Room::with('roomType')->paginate(10);
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
 
         $template = 'backend.management.room.room';
         return view('backend.dashboard.layout', compact(
             'template',
             'rooms',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
     
     public function goInsertRoom() {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $roomTypeData = RoomType::all();
         $ids = $roomTypeData->pluck('room_type_id');
         $names = $roomTypeData->pluck('room_type_name');
@@ -117,6 +155,9 @@ class RoomMgmtController extends Controller
             'template',
             'ids',
             'names',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -147,6 +188,10 @@ class RoomMgmtController extends Controller
     }
 
     public function goEditRoom($id) {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $rooms = Room::findOrFail($id);
         $images = RoomImage::where('room_id', $id)->get();
 
@@ -162,6 +207,9 @@ class RoomMgmtController extends Controller
             'ids',
             'names',
             'images',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -216,12 +264,19 @@ class RoomMgmtController extends Controller
     }
 
     public function goDeleteRoom($id) {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $rooms = Room::findOrFail($id);
 
         $template = 'backend.management.room.deleteRoom';
         return view('backend.dashboard.layout',compact(
             'template',
             'rooms',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -235,6 +290,10 @@ class RoomMgmtController extends Controller
 
 /**Room Image */
     public function roomImage($id) {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $rooms = Room::with('roomType')->findOrFail($id);
         $images = RoomImage::where('room_id', $id)->get();
 
@@ -243,6 +302,9 @@ class RoomMgmtController extends Controller
             'template',
             'rooms',
             'images',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 

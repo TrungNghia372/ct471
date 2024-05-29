@@ -22,6 +22,15 @@ h5 {
 .black {
     color: black;
 }
+.green {
+    color: green;
+}
+.red {
+    color: rgb(255, 59, 59);
+}
+.blue {
+    color: rgb(0, 132, 255);
+}
 
 .border {
     border: 1px solid black;

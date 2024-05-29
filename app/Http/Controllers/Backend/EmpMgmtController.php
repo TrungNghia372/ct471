@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Employee;
+use App\Models\Customer;
+use App\Models\Room;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,6 +18,10 @@ class EmpMgmtController extends Controller {
     }
 
     public function index() {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $employees = Employee::paginate(10);
 
         if($employees) {
@@ -31,13 +37,23 @@ class EmpMgmtController extends Controller {
         return view('backend.dashboard.layout', compact(
             'template',
             'employees',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
     public function goInsert() {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $template = 'backend.management.employee.insertEmployee';
         return view('backend.dashboard.layout', compact(
             'template',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -66,6 +82,10 @@ class EmpMgmtController extends Controller {
     }
 
     public function goEdit($id) {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $employees = Employee::findOrFail($id); /**Tìm khách hàng theo id */
         $address = $employees->address;
         $separator = " - ";
@@ -79,6 +99,9 @@ class EmpMgmtController extends Controller {
             'province',
             'district',
             'ward',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -125,12 +148,19 @@ class EmpMgmtController extends Controller {
     }
 
     public function goDelete($id) {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $employees = Employee::findOrFail($id);
 
         $template = 'backend.management.employee.deleteEmployee';
         return view('backend.dashboard.layout', compact(
             'template',
             'employees',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 

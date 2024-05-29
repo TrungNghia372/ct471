@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Service;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Service;
+use App\Models\Customer;
+use App\Models\Employee;
+use App\Models\Room;
+use Carbon\Carbon;
 
 class SvcMgmtController extends Controller
 {
@@ -18,18 +21,31 @@ class SvcMgmtController extends Controller
 
     public function index() {
         $services = Service::paginate(10);
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
 
         $template = 'backend.management.service.service';
         return view('backend.dashboard.layout', compact(
             'template',
             'services',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
     public function goInsertService() {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+        
         $template = 'backend.management.service.insertService';
         return view('backend.dashboard.layout', compact(
             'template',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -46,11 +62,17 @@ class SvcMgmtController extends Controller
 
     public function goEditService($id) {
         $services = Service::findOrFail($id);
-
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+        
         $template = 'backend.management.service.editService';
         return view('backend.dashboard.layout', compact(
             'template',
             'services',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -77,11 +99,17 @@ class SvcMgmtController extends Controller
 
     public function goDeleteService($id) {
         $services = Service::findOrFail($id);
-
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+        
         $template = 'backend.management.service.deleteService';
         return view('backend.dashboard.layout',compact(
             'template',
             'services',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 

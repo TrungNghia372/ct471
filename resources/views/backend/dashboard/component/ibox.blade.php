@@ -2,52 +2,52 @@
     <div class="col-lg-3">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <span class="label label-success pull-right">Monthly</span>
-                <h5>Khách Hàng</h5>
+                <h5>Customer</h5>
             </div>
-            <div class="ibox-content">
-                <h1 class="no-margins">40 886,200</h1>
-                <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                <small>Total income</small>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <span class="label label-info pull-right">Annual</span>
-                <h5>Nhân Viên</h5>
-            </div>
-            <div class="ibox-content">
-                <h1 class="no-margins">275,800</h1>
-                <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-                <small>New orders</small>
+            <div class="ibox-content" style="padding-bottom: 5px">
+                <h1 class="no-margins green">{{$countCust}} Khách hàng</h1>
+                <div class=" d-flex">
+                    <a href="" class="btn btn-primary btn-sm">Xem chi tiết</a>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-lg-3">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <span class="label label-primary pull-right">Today</span>
-                <h5>Phòng</h5>
+                <h5>Employee</h5>
             </div>
-            <div class="ibox-content">
-                <h1 class="no-margins">106,120</h1>
-                <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>
-                <small>New visits</small>
+            <div class="ibox-content" style="padding-bottom: 5px">
+                <h1 class="no-margins red">{{$countEmp}} Nhân viên</h1>
+                <div class=" d-flex">
+                    <a href="" class="btn btn-danger btn-sm">Xem chi tiết</a>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-lg-3">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <span class="label label-danger pull-right">Low value</span>
+                <h5>Room</h5>
+            </div>
+            <div class="ibox-content" style="padding-bottom: 5px">
+                <h1 class="no-margins blue">{{$countRoom}} Phòng</h1>
+                <div class=" d-flex">
+                    <a href="" class="btn btn-success btn-sm">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
                 <h5>Doanh Thu</h5>
             </div>
-            <div class="ibox-content">
+            <div class="ibox-content"  style="padding-bottom: 5px">
                 <h1 class="no-margins">80,600</h1>
-                <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div>
-                <small>In first month</small>
+                <div class=" d-flex">
+                    <a href="" class="btn btn-warning btn-sm">Xem chi tiết</a>
+                </div>
             </div>
         </div>
     </div>

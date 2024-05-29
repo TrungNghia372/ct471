@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
+use App\Models\Employee;
+use App\Models\Room;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,6 +18,10 @@ class CustMgmtController extends Controller {
     }
 
     public function index() {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $customers = Customer::paginate(10);
 
         if ($customers) {
@@ -30,13 +36,23 @@ class CustMgmtController extends Controller {
         return view('backend.dashboard.layout', compact(
             'template',
             'customers',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
     public function goInsert() {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $template = 'backend.management.customer.insertCustomer';
         return view('backend.dashboard.layout', compact(
             'template',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -63,6 +79,10 @@ class CustMgmtController extends Controller {
     }
 
     public function goEdit($id) {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $customers = Customer::findOrFail($id); /**Tìm khách hàng theo id */
         $address = $customers->address;
         $separator = " - ";
@@ -76,6 +96,9 @@ class CustMgmtController extends Controller {
             'province',
             'district',
             'ward',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -116,12 +139,19 @@ class CustMgmtController extends Controller {
     }
 
     public function goDelete($id) {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
         $customers = Customer::findOrFail($id);
 
         $template = 'backend.management.customer.deleteCustomer';
         return view('backend.dashboard.layout', compact(
             'template',
             'customers',
+            'countCust',
+            'countEmp',
+            'countRoom',
         ));
     }
 
@@ -134,8 +164,7 @@ class CustMgmtController extends Controller {
 
     }
 
-    private function formatDate($date)
-    {
+    private function formatDate($date) {
         return Carbon::parse($date)->format('d/m/Y');
     }
 }
