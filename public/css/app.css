@@ -19,7 +19,19 @@ h5 {
     display: flex;
     justify-content: end;
 }
+.black {
+    color: black;
+}
 
+.border {
+    border: 1px solid black;
+}
+
+.bg-white {
+    background-color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
 /* ======== Margin ======== */
 .mt-1{ margin-top: 0.25rem;}
 .mt-2{ margin-top: 0.5rem; }

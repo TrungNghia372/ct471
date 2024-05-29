@@ -56,11 +56,12 @@
                     <thead>
                         <tr>
                             <th class="text-center">STT</th>
-                            <th class="text-center col-lg-1">Số phòng</th>
+                            <th class="text-center">Số phòng</th>
                             <th class="text-center">Tên phòng</th>
                             <th class="text-center">Loại phòng</th>
                             <th class="text-center">Sức chứa</th>
-                            <th class="text-center">Tiện nghi</th>
+                            <th class="text-center col-lg-4">Tiện nghi</th>
+                            <th class="text-center">Hình ảnh</th>
                             <th class="text-center">Trạng thái</th>
                             <th class="text-center">Thao tác</th>
                         </tr>
@@ -75,7 +76,8 @@
                                 <td class="text-center">{{ $room->room_name }}</td>
                                 <td class="text-center">{{ $room->roomType->room_type_name }}</td>
                                 <td class="text-center">{{ $room->capacity }}</td>
-                                <td class="text-center">{{ $room->convenient }}</td>
+                                <td class="text-center col-lg-4">{{ $room->convenient }}</td>
+                                <td class="text-center"><a href="{{ route('management.roomImage', $room->room_id) }}" class="btn btn-warning btn-outline btn-sm"><i class="fa fa-image"></i></a></td>
                                 <td class="text-center">{{ $room->status }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('goEditRoom', $room->room_id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>

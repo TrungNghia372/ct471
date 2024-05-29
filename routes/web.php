@@ -61,6 +61,7 @@ Route::get('dashboard/index', [DashboardController::class, 'index'])->name('dash
     /**Go to room/room type management page */
     Route::get('management/room', [RoomMgmtController::class, 'room'])->name('management.room');
     Route::get('management/roomType', [RoomMgmtController::class, 'roomType'])->name('management.roomType');
+    Route::get('management/roomImage/{room_id}', [RoomMgmtController::class, 'roomImage'])->name('management.roomImage');
     /**Insert */
         // Room Type
         Route::get('management/insertRoomType', [RoomMgmtController::class, 'goInsertRoomType'])->name('goInsertRoomType');

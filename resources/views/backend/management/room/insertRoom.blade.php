@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<form action="{{ route('management.insertRoom') }}" class="box" method="post">
+<form action="{{ route('management.insertRoom') }}" class="box" method="post" enctype="multipart/form-data">
     @csrf
     <div class="wrapper wrapper-content animated fadeRight">
         <div class="row">
@@ -25,13 +25,7 @@
             <div class="col-lg-9">
                 <div class="ibox">
                     <div class="ibox-content">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-row">
-                                    <label for="" class="control-label text-right">Số phòng: <span class="text-danger">(*)</span></label>
-                                    <input type="number" name="room_number" value="" class="form-control" placeholder="">
-                                </div>
-                            </div>
+                        <div class="row mb-3">
                             <div class="col-lg-6">
                                 <div class="form-row">
                                     <label for="" class="control-label text-right">Loại phòng: <span class="text-danger">(*)</span></label>
@@ -42,24 +36,6 @@
                                             <option value="{{ $id }}">{{ $names[$index] }}</option>
                                         @endforeach
                                     </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row mb-3">
-                            <div class="col-lg-12">
-                                <div class="form-row">
-                                    <label for="" class="control-label text-right">Tên phòng: <span class="text-danger">(*)</span></label>
-                                    <input type="text" name="room_name" value="" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-lg-6">
-                                <div class="form-row">
-                                    <label for="" class="control-label text-right">Sức chứa: <span class="text-danger">(*)</span></label>
-                                    <input type="number" name="capacity" value="" class="form-control" placeholder="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -73,6 +49,36 @@
                                         <option value="Bảo trì">Bảo trì</option>
                                         <option value="Đang dọn dẹp">Đang dọn dẹp</option>
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-lg-6">
+                                <div class="form-row">
+                                    <label for="" class="control-label text-right">Số phòng: <span class="text-danger">(*)</span></label>
+                                    <input type="number" name="room_number" value="" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-row">
+                                    <label for="" class="control-label text-right">Tên phòng: <span class="text-danger">(*)</span></label>
+                                    <input type="text" name="room_name" value="" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-lg-6">
+                                <div class="form-row">
+                                    <label for="" class="control-label text-right">Sức chứa: <span class="text-danger">(*)</span></label>
+                                    <input type="number" name="capacity" value="" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-row">
+                                    <label for="" class="control-label text-right">Hình ảnh phòng: <span class="text-danger">(*)</span></label>
+                                    <input type="file" name="images[]" class="form-control" multiple>
                                 </div>
                             </div>
                         </div>
