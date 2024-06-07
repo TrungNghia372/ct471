@@ -10,11 +10,15 @@ use App\Http\Controllers\Backend\EmpMgmtController;
 use App\Http\Controllers\Backend\RoomMgmtController;
 use App\Http\Controllers\Backend\SvcMgmtController;
 
+use App\Http\Controllers\Customer\WelcomeController;
+use App\Http\Controllers\Customer\BookingController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+
+
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// })->name('welcome');
 
 
 //Login
@@ -96,3 +100,23 @@ Route::get('dashboard/index', [DashboardController::class, 'index'])->name('dash
     /**Delete Service */
     Route::get('management/deleteService/{service_id}', [SvcMgmtController::class, 'goDeleteService'])->name('goDeleteService');
     Route::delete('management/deleteService/{service_id}', [SvcMgmtController::class, 'deleteService'])->name('management.deleteService');
+
+/**Customer Interface*/
+    /**Index */
+    Route::get('', [WelcomeController::class, 'index'])->name('welcome');
+
+    /**Room page */
+    Route::get('roomList', [WelcomeController::class, 'goRoomList'])->name('goRoomList');
+    
+    /**Room detail */
+    Route::get('roomDetail/{room_id}', [WelcomeController::class, 'goRoomDetail'])->name('goRoomDetail');
+
+    /**Booking */
+    Route::post('roomDetail/{room_id}', [BookingController::class, 'booking'])->name('booking');
+    Route::get('booking', [BookingController::class, 'goBooking'])->name('goBooking');
+
+    /**BookingDetail */
+    Route::get('bookingDetail/{booking_id}', [BookingController::class, 'goBookingDetail'])->name('goBookingDetail');
+
+    /**DeleteBooking */
+    Route::delete('deleteBooking/{booking_id}', [BookingController::class, 'deleteBooking'])->name('deleteBooking');

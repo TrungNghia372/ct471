@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bookingdetail', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('booking_detail_id');
+            $table->date('date_from');
+            $table->date('date_to');
+            $table->unsignedBigInteger('room_id');
+            $table->unsignedBigInteger('booking_id');
+            $table->foreign('room_id')->references('room_id')->on('room');
+            $table->foreign('booking_id')->references('booking_id')->on('booking');
             $table->timestamps();
         });
     }

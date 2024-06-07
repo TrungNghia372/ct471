@@ -38,4 +38,7 @@ class Customer extends Authenticatable
         return 'customer';
     }
 
+    public function booking() {
+        return $this->hasMany(Booking::class, 'customer_id');
+    }
 }

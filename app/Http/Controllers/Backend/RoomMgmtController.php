@@ -307,5 +307,4 @@ class RoomMgmtController extends Controller
             'countRoom',
         ));
     }
-
 }

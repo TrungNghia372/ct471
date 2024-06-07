@@ -56,6 +56,14 @@ return [
             'driver' => 'session',
             'provider' => 'rooms',
         ],
+        'booking' => [
+            'driver' => 'session',
+            'provider' => 'bookings',
+        ],
+        'bookingdetail' => [
+            'driver' => 'session',
+            'provider' => 'bookingdetail',
+        ],
     ],
 
     /*
@@ -91,9 +99,18 @@ return [
         'roomtypes' => [
             'driver' => 'eloquent',
             'model' => App\Models\RoomType::class,
-        ],'rooms' => [
+        ],
+        'rooms' => [
             'driver' => 'eloquent',
             'model' => App\Models\Room::class,
+        ],
+        'bookings' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Booking::class,
+        ],
+        'bookingdetails' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\BookingDetail::class,
         ],
 
         // 'users' => [

@@ -111,7 +111,7 @@
             <div class="col-lg-9">
                 <div class="ibox">
                     <div class="col-lg-2"></div>
-                    <div class="col-lg-8 bg-white">
+                    <div class="col-lg-8 bg-white ptpb">
                         <div class="carousel slide" id="carousel2">
                             <ol class="carousel-indicators">
                                 @foreach($images as $index => $image)

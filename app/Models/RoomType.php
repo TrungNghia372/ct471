@@ -28,8 +28,11 @@ class RoomType extends Model
         'email_verified_at' => 'datetime',
     ];
 
-    public function getTable()
-    {
+    public function room() {
+        return $this->hasMany(Room::class);
+    }
+
+    public function getTable() {
         return 'roomtype';
     }
 }

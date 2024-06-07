@@ -13,25 +13,26 @@
             echo 'Trang Chủ';
         }
         ?></title>
-
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
+    <script src="{{ asset('js/hometn.js') }}"></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar container">
             <div class="container-fluid">
-                <a href="index.php"><img style="width: 80px" src="https://khachsan5.maugiaodien.com/wp-content/uploads/2019/02/logo-vntrip-black.png" class="navbar-brand" alt=""></a>
+                <a href="{{  route('welcome') }}"><img style="width: 120px" src="{{ asset('img/logo.png') }}" class="navbar-brand ms-3" alt=""></a>
                 <form class="d-flex" method="GET" acction="">
                     <!-- Tìm kiếm -->
                     <input type="text" value="" name="search" class="form-control me-2" placeholder="Tìm kiếm" aria-label="Search" style="width: 500px">
                     <button type="submit" value="Tìm kiếm" class="btn btn-outline-info me-2"><i class="fa fa-search"></i></button>
-                    <!-- Giỏ hàng -->
-                    <button class="btn btn-outline-info" type="button"><i class="fa-solid fa-house"></i></button>
+                    <!-- Đơn đặt phòng -->
+                    {{-- <button class="btn btn-outline-info" type="button"><i class="fa-solid fa-house"></i></button> --}}
+                    <a href="{{ route('goBooking') }}" class="btn btn-outline-info"><i class="fa-solid fa-house"></i></a>
                 </form>
             </div>
         </nav>
@@ -51,7 +52,7 @@
                             <a class="nav-link me-2 btn btn-outline-info" href="tintuc.php">Tin Tức</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-2 btn btn-outline-info" href="sanpham.php">Phòng</a>
+                            <a class="nav-link me-2 btn btn-outline-info" href="{{ route('goRoomList') }}">Phòng</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn btn-outline-info" href="lienhe.php">Liên Hệ</a>

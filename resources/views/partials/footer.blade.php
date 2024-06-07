@@ -3,7 +3,7 @@
                 <div class="row mt-3">
                     <div class="col-lg-3 col-xs-12">
                         <div class="row">
-                            <img class="my-3" style="width: 250px;" src="img/LogoCTN.png" alt="">
+                            <img class="my-3" style="width: 250px;" src="{{ asset('img/logo.png') }}" alt="">
                         </div>
 
                         <div class="row">

@@ -1,6 +1,9 @@
 .bg-color {
     background-color: rgba(45, 199, 199, 0.37) !important;
 }
+/* .bg-image {
+    background-image: url('public/img/login.jpg')
+} */
 .error-message {
     color: red;
     font-size: 15px;
@@ -31,15 +34,57 @@ h5 {
 .blue {
     color: rgb(0, 132, 255);
 }
-
 .border {
     border: 1px solid black;
 }
-
-.bg-white {
-    background-color: white;
+.ptpb {
     padding-top: 12px;
     padding-bottom: 12px;
+}
+.bg-white {
+    background-color: white;
+}
+.text-sm {
+    font-size: 12px;
+}
+h5.text-sm {
+    font-size: 13px;
+}
+.title-room {
+    max-height: 33px;
+    min-height: 33px;
+}
+.img-room {
+    max-height: 190.84px;
+    min-height: 190.84px;
+    max-width: 286px;
+    min-width: 286px;
+}
+.max-h {
+    max-height: 400px;
+    min-height: 400px;
+}
+p.max-h  {
+    max-height: 50px;
+    min-height: 50px;
+}
+.ellipsis {
+    overflow: hidden; /* Ẩn phần nội dung vượt quá kích thước thẻ */
+    text-overflow: ellipsis; /* Hiển thị dấu "..." khi nội dung vượt quá */
+    text-align: justify;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    text-align: center;
+    background-color: rgba(42, 49, 49, 0.664);
+    border-radius: 10px;
+    /* color: black !important; */
+}
+.carousel-caption form {
+    display: inline-block;
 }
 /* ======== Margin ======== */
 .mt-1{ margin-top: 0.25rem;}
