@@ -52,17 +52,29 @@
             </div>
             <div class="border border-2 border-black border-top-0 rounded-bottom">
                 <div class="row pt-2">
-                    <div class="col-lg-5">
+                    <div class="col-lg-6">
                         <p class="ms-5"><strong>Ngày đặt:</strong> {{ $formatted_booking_date }}</p>
                         @foreach ($bookingDetails as $bookingDetail)
                             <p class="ms-5"><strong>Ngày đến:</strong> {{ $bookingDetail->formatted_date_from }}</p>
                             <p class="ms-5"><strong>Ngày đi:</strong> {{ $bookingDetail->formatted_date_to }}</p>
                         @endforeach
                     </div>
-                    <div class="col-lg-7">
-                        <p class="ms-3"><strong>Trạng thái đơn:</strong> Chờ xác nhận</p>
-                        <p class="ms-3"><strong>Người xác nhận:</strong> Quách Trung Nghĩa</p>
-                        <p class="ms-3"><strong>Tổng tiền:</strong> {{ number_format($booking->total_amount, 0, ',', '.') }}đ</p>
+                    <div class="col-lg-6">
+                        <p class=""><strong>Trạng thái đơn:</strong>
+                            @if ($booking->employee_id == null)
+                                Chờ xác nhận
+                            @else
+                                Đã xác nhận
+                            @endif
+                        </p>
+                        <p class=""><strong>Người xác nhận:</strong>
+                            @if ($booking->employee_id == null)
+                                Trống
+                            @else
+                                {{ $booking->employee->fullname }}
+                            @endif
+                        </p>
+                        <p class=""><strong>Tổng tiền:</strong> {{ number_format($booking->total_amount, 0, ',', '.') }}đ</p>
                     </div>
                 </div>
                 <div class="row">
@@ -90,7 +102,7 @@
                         <p class="ms-5"><strong>Số phòng:</strong> P.{{ $bookingDetail->room->room_number }}</p>
                     </div>
                     <div class="col-lg-5">
-                        <p class="ms-3"><strong>Sức chứa:</strong> {{ $bookingDetail->room->capacity }}</p>
+                        <p class=""><strong>Sức chứa:</strong> {{ $bookingDetail->room->capacity }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -98,12 +110,17 @@
                         <p class="ms-5"><strong>Loại phòng:</strong> {{ $bookingDetail->room->roomType->room_type_name }}</p>
                     </div>
                     <div class="col-lg-5">
-                        <p class="ms-3"><strong>Giá:</strong> {{ number_format($bookingDetail->room->roomType->overnight_price, 0, ',', '.') }}đ/đêm</p>
+                        <p class=""><strong>Trạng thái:</strong> {{ $bookingDetail->room->status }} </p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-7">
-                        <p class="ms-5"><strong>Trạng thái:</strong> {{ $bookingDetail->room->status }}</p>
+                    <div class="col-lg-12">
+                        <p class="ms-5">
+                            <strong>Giá:</strong> 
+                                {{ number_format($bookingDetail->room->roomType->hourly_price, 0, ',', '.') }}đ/Giờ - 
+                                {{ number_format($bookingDetail->room->roomType->overnight_price, 0, ',', '.') }}đ/Đêm - 
+                                {{ number_format($bookingDetail->room->roomType->daily_price, 0, ',', '.') }}đ/Ngày
+                        </p>
                     </div>
                 </div>
                 <div class="row">

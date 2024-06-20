@@ -30,11 +30,13 @@
                     <li><a href="{{ route('management.employee') }}">Quản lý nhân viên</a></li>
                     <li><a href="{{ route('management.roomType') }}">Quản lý phòng</a></li>
                     <li><a href="{{ route('management.service') }}">Quản lý dịch vụ</a></li>
-                    {{-- <li><a href="dashboard_5.html">...</a></li> --}}
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">Xem phòng</span></a>
+                <a href="{{ route('goUnconfimred') }}"><i class="fa fa-edit"></i> <span class="nav-label">Xác nhận</span></a>
+            </li>
+            <li>
+                <a href="{{ route('goRoomDiagram') }}"><i class="fa fa-desktop"></i> <span class="nav-label">Sơ đồ phòng</span></a>
             </li>
             {{-- <li>
                 <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>

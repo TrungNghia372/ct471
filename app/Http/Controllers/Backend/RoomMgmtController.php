@@ -307,4 +307,22 @@ class RoomMgmtController extends Controller
             'countRoom',
         ));
     }
+
+//**Room Diagram */
+    public function goRoomDiagram() {
+        $countCust = Customer::count();
+        $countEmp = Employee::count();
+        $countRoom = Room::count();
+
+        $rooms = Room::all();
+
+        $template = 'backend.management.diagram.roomDiagram';
+        return view('backend.dashboard.layout', compact(
+            'template',
+            'countCust',
+            'countEmp',
+            'countRoom',
+            'rooms',
+        ));
+    }
 }

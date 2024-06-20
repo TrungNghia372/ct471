@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('bookingdetail', function (Blueprint $table) {
             $table->bigIncrements('booking_detail_id');
-            $table->date('date_from');
-            $table->date('date_to');
+            $table->dateTime('date_from', precision: 0);
+            $table->dateTime('date_to', precision: 0);
             $table->unsignedBigInteger('room_id');
             $table->unsignedBigInteger('booking_id');
             $table->foreign('room_id')->references('room_id')->on('room');

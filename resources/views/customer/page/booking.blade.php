@@ -14,27 +14,38 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <div class="row border-bottom">
-                                    <h5 class="card-title text-capitalize">{{ $bookingDetail->room->room_name }}</h5>
+                                <h5 class="card-title text-capitalize">{{ $bookingDetail->room->room_name }}</h5>
+                                <div class="row border-top">
                                     <div class="col-lg-6">
                                         <div class="card-text"><small>
-                                            <strong>Ngày đặt:</strong> {{ $booking->booking_date }}<br>
-                                            <strong>Tổng tiền:</strong> {{ number_format($booking->total_amount, 0, ',', '.') }}đ<br>
-                                            <strong>Trạng thái: </strong>
-                                                @if ($booking->employee_id == null)
-                                                    Chờ xác nhận
-                                                @else 
-                                                    Đã xác nhận
-                                                @endif
+                                            <strong>Ngày đặt:</strong> {{ $booking->booking_date }}<br>   
                                         </small></div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="card-text"><small>
-                                            <strong>Ngày đến:</strong> {{ $bookingDetail->date_from }}<br>
-                                            <strong>Ngày đi: </strong>{{ $bookingDetail->date_to }}
+                                            <strong>Tổng tiền:</strong> {{ number_format($booking->total_amount, 0, ',', '.') }}đ<br>
                                         </small></div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <small>
+                                        <strong>Ngày đến:</strong> {{ $bookingDetail->date_from }}<br>
+                                        <strong>Ngày đi: </strong>{{ $bookingDetail->date_to }}
+                                    </small>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <small>
+                                        <strong>Trạng thái: </strong>
+                                            @if ($booking->employee_id == null)
+                                                Chờ xác nhận
+                                            @else 
+                                                Đã xác nhận
+                                            @endif <br>
+                                    </small>
+                                </div>
+
                                 <div class="row">
                                     <div class="d-flex justify-content-end mt-3">
                                         @if ($booking->employee_id == null)

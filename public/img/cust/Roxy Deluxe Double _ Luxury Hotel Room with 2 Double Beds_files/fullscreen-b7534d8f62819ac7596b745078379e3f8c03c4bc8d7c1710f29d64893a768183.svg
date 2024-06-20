@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>full screen CTA</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Soho-Grand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SG---desktop-rooms-detail-360" transform="translate(-1103.000000, -779.000000)">
+            <g id="full-screen-CTA" transform="translate(1103.000000, 779.000000)">
+                <g id="Group-2">
+                    <circle id="Oval" fill="#000000" cx="22.5" cy="22.5" r="22.5"></circle>
+                    <path d="M22.5,42.3 C32.4185769,42.3 40.6337702,35.0069477 42.0755889,25.4908341 C42.2233763,24.5154258 42.3,23.5166611 42.3,22.5 C42.3,21.3542439 42.2026816,20.2312177 42.0158599,19.1387366 C40.4196324,9.80444266 32.2894819,2.7 22.5,2.7 C11.564762,2.7 2.7,11.564762 2.7,22.5 C2.7,33.435238 11.564762,42.3 22.5,42.3 Z" id="Oval-Copy" stroke="#FFFFFF"></path>
+                </g>
+                <g id="Group-5" transform="translate(12.500000, 12.500000)" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0.5">
+                    <polygon id="Fill-1" points="7.31707317 0 0 0 0 6.95878049 0.487804878 6.95878049 0.487804878 0.487804878 7.31707317 0.487804878"></polygon>
+                    <polygon id="Fill-2" points="6.95878049 19.5121951 0.487804878 19.5121951 0.487804878 12.6829268 -4.87804878e-07 12.6829268 -4.87804878e-07 20 6.95878049 20"></polygon>
+                    <polygon id="Fill-3" points="20 13.0412195 19.5121951 13.0412195 19.5121951 19.5121951 12.6829268 19.5121951 12.6829268 20.0000005 20 20.0000005"></polygon>
+                    <polygon id="Fill-4" points="20 7.31707317 20 0 13.0412195 0 13.0412195 0.487804878 19.5121951 0.487804878 19.5121951 7.31707317"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

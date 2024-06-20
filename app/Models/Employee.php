@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Employee extends Model
+class Employee extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -37,5 +38,8 @@ class Employee extends Model
     public function getTable()
     {
         return 'employee';
+    }
+    public function booking() {
+        return $this->hasMany(Booking::class, 'employee_id');
     }
 }

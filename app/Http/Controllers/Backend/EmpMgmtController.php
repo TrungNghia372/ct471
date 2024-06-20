@@ -123,7 +123,7 @@ class EmpMgmtController extends Controller {
             $employees->date_of_birth = $request->input('date');
         }
         if ($request->has('password1')) {
-            $employees->password = $request->input('password1');
+            $employees->password = Hash::make($request->input('password1'));
         }
         if ($request->has('salary')) {
             $employees->salary = $request->input('salary');

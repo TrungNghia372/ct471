@@ -15,7 +15,7 @@
             <form method="post" role="form" action="{{ route('auth.doLogin') }}">
                 @csrf
                 <div class="form-group mb-3">
-                    <label for="usernameInput"><i class="fas fa-user"></i> Email:</label>
+                    <label for="usernameInput"><i class="fa-solid fa-envelope"></i> Email:</label>
                     <input type="text" class="form-control" placeholder="Nhập email" name="emailLogin" value="{{ old('emailLogin') }}"/>
                     @if ($errors->has('emailLogin'))
                         <span class="error-message">* {{ $errors->first('emailLogin') }}</span>

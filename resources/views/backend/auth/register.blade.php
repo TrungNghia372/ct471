@@ -13,7 +13,7 @@
             <form method="post" role="form" action="{{ route('auth.doRegister') }}">
                 @csrf
                 <div class="form-group mb-3">
-                    <label for="usernameInput"><i class="fas fa-user"></i> Họ và tên:</label>
+                    <label for="usernameInput"><i class="fa-solid fa-signature"></i></i> Họ và tên:</label>
                     <input type="text" class="form-control" placeholder="" name="fullName" value="{{ old('fullName') }}"/>
                     @if ($errors->has('fullName'))
                         <span class="error-message">* {{ $errors->first('fullName') }}</span>
@@ -23,14 +23,14 @@
                 <div class="form-group mb-3">
                     <div class="row">
                         <div class="col-6">
-                            <label for="dateInput"><i class="fas fa-user"></i> Ngày sinh:</label>
+                            <label for="dateInput"><i class="fa-solid fa-calendar-days"></i> Ngày sinh:</label>
                             <input type="date" class="form-control" placeholder="" name="date" value=""/>
                             @if ($errors->has('date'))
                                 <span class="error-message">* {{ $errors->first('date') }}</span>
                             @endif
                         </div>
                         <div class="col-6">
-                            <label for="genderInput"><i class="fas fa-user"></i> Giới tính:</label>
+                            <label for="genderInput"><i class="fa-solid fa-venus-mars"></i> Giới tính:</label>
                             <input type="text" class="form-control" placeholder="" name="gender" value="{{ old('gender') }}"/>
                             @if ($errors->has('gender'))
                                 <span class="error-message">* {{ $errors->first('gender') }}</span>
@@ -42,7 +42,7 @@
                 <div class="form-group mb-3">
                     <div class="row">
                         <div class="col-6">
-                            <label for="phoneInput"><i class="fas fa-user"></i> Số điện thoại:</label>
+                            <label for="phoneInput"><i class="fa-solid fa-phone"></i> Số điện thoại:</label>
                             <input type="text" class="form-control" placeholder="" name="phone" value="{{ old('phone') }}"/>
                             @if ($errors->has('phone'))
                                 <span class="error-message">* {{ $errors->first('phone') }}</span>
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="col-6">
-                            <label for="nationalIdInput"><i class="fas fa-user"></i> Số CCCD:</label>
+                            <label for="nationalIdInput"><i class="fa-solid fa-id-card"></i> Số CCCD:</label>
                             <input type="text" class="form-control" placeholder="" name="nationalId" value="{{ old('nationalId') }}"/>
                             @if ($errors->has('nationalId'))
                                 <span class="error-message">* {{ $errors->first('nationalId') }}</span>
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="emailInput"><i class="fas fa-user"></i> Email:</label>
+                    <label for="emailInput"><i class="fa-solid fa-envelope"></i> Email:</label>
                     <input type="text" class="form-control" placeholder="Nhập email" name="email" value="{{ old('email') }}"/>
                     @if ($errors->has('email'))
                         <span class="error-message">* {{ $errors->first('email') }}</span>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="addressInput"><i class="fas fa-user"></i> Địa chỉ:</label>
+                    <label for="addressInput"><i class="fa-solid fa-location-dot"></i> Địa chỉ:</label>
                     <div class="row">
                         <div class="col-4">
                             <input type="text" class="form-control" placeholder="Tỉnh/Thành phố" name="province" value="{{ old('province') }}"/>

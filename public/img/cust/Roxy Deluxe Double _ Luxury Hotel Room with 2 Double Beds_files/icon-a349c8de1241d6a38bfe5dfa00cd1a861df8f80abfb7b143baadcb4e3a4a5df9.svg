@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="47px" height="47px" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>360 icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Soho-Grand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SG---desktop-rooms-detail-360" transform="translate(-57.000000, -778.000000)">
+            <g id="360-icon" transform="translate(58.000000, 779.000000)">
+                <g id="Group-2" stroke="#FFFFFF">
+                    <circle id="Oval" cx="22.5" cy="22.5" r="22.5"></circle>
+                    <path d="M22.5,42.3 C32.4185769,42.3 40.6337702,35.0069477 42.0755889,25.4908341 C42.2233763,24.5154258 42.3,23.5166611 42.3,22.5 C42.3,21.3542439 42.2026816,20.2312177 42.0158599,19.1387366 C40.4196324,9.80444266 32.2894819,2.7 22.5,2.7 C11.564762,2.7 2.7,11.564762 2.7,22.5 C2.7,33.435238 11.564762,42.3 22.5,42.3 Z" id="Oval-Copy"></path>
+                </g>
+                <text id="360°" font-family="ProximaNova-Bold, Proxima Nova" font-size="13" font-weight="bold" letter-spacing="0.866666667" fill="#FFFFFF">
+                    <tspan x="8.44766667" y="27">360°</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

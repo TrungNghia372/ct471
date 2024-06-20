@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
@@ -31,9 +32,15 @@ class AuthController extends Controller {
         if (Auth::attempt($credentials)) {
             session(['admin' => Auth::user()]);
             return redirect()->route('dashboard.index')->with('success', 'Đăng nhập thành công');
+
+        } else if (Auth::guard('employee')->attempt($credentials)) {
+            session(['employee' => Auth::guard('employee')->user()]);
+            return redirect()->route('goRoomDiagram')->with('success', 'Đăng nhập thành công');
+
         } else if (Auth::guard('customer')->attempt($credentials)) {
             session(['customer' => Auth::guard('customer')->user()]);
             return redirect()->route('welcome')->with('success', 'Đăng nhập thành công');
+
         }
 
         return redirect()->route('auth.login')->with('error', 'Email hoặc mật khẩu không chính xác');

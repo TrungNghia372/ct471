@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
+use App\Http\Requests\EmployeeInterfaceRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
 use App\Models\Employee;
@@ -56,7 +57,7 @@ class CustMgmtController extends Controller {
         ));
     }
 
-    public function insert(Request $request) {
+    public function insert(EmployeeInterfaceRequest $request) {
         if ($request->input('password1') !== $request->input('password2')) {
             return redirect()->back()->withInput()->with('error', 'Mật khẩu nhập lại không khớp');
         }
