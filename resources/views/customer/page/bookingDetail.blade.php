@@ -60,12 +60,7 @@
                         @endforeach
                     </div>
                     <div class="col-lg-6">
-                        <p class=""><strong>Trạng thái đơn:</strong>
-                            @if ($booking->employee_id == null)
-                                Chờ xác nhận
-                            @else
-                                Đã xác nhận
-                            @endif
+                        <p class=""><strong>Trạng thái đơn:</strong> {{$booking->status}}
                         </p>
                         <p class=""><strong>Người xác nhận:</strong>
                             @if ($booking->employee_id == null)

@@ -53,7 +53,7 @@
                             <a class="me-2 btn btn-outline-light btn-sm" href="{{ route('goRoomDiagram') }}"><strong>Lịch đặt phòng</strong></a>
                         </li>
                         <li class="nav-item">
-                            <a class="me-2 btn btn-outline-light btn-sm" aria-current="page" href="{{ route('goBooking') }}"><strong>Đơn đặt phòng</strong></a>
+                            <a class="me-2 btn btn-outline-light btn-sm" aria-current="page" href="{{ route('goBookingEmp') }}"><strong>Đơn đặt phòng</strong></a>
                         </li>
                         <li class="nav-item">
                             <a class="me-2 btn btn-outline-light btn-sm" href="{{ route('goCustomerList') }}"><strong>Khách hàng</strong></a>

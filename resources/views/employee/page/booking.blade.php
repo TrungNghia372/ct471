@@ -22,24 +22,30 @@
                     @php $stt = 1; @endphp
                     @foreach ($unConfirmed as $booking)
                         <tbody>
-                            <tr class="table-secondary">
-                                <td class="text-center">{{ $stt++ }}</td>
-                                <td class="text-center">{{ $booking->customer->fullname }}</td>
-                                @foreach ($booking->bookingDetail as $bookingDetail)
-                                    <td class="text-center">{{ $bookingDetail->room->room_name }}</td>
-                                @endforeach
-                                <td class="text-center">{{ $booking->formatted_booking_date }}</td>
-                                <td class="text-center">{{ $booking->request }}</td>
-                                <td class="text-center">{{ number_format($booking->total_amount, 0, ',', '.') }}đ</td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-list"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-outline-success btn-sm"><i class="fa-regular fa-circle-check"></i></a>
-                                    <a href="" class="btn btn-outline-danger btn-sm"><i class="fa-regular fa-circle-xmark"></i></a>
-                                </td>
-                            </tr>
+                            <form action="{{ route('confirmEmp', ['booking_id' => $booking]) }}" method="post">
+                            @csrf
+                                <tr class="table-secondary">
+                                    <td class="text-center">{{ $stt++ }}</td>
+                                    <td class="text-center">{{ $booking->customer->fullname }}</td>
+                                    @foreach ($booking->bookingDetail as $bookingDetail)
+                                        <td class="text-center">{{ $bookingDetail->room->room_name }}</td>
+                                    @endforeach
+                                    <td class="text-center">{{ $booking->formatted_booking_date }}</td>
+                                    <td class="text-center">{{ $booking->request }}</td>
+                                    <td class="text-center">{{ number_format($booking->total_amount, 0, ',', '.') }}đ</td>
+                                    <td class="text-center">
+                                        <a href="" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#unConfirmedBooking_{{$booking->booking_id}}"><i class="fa-solid fa-list"></i></a>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="submit" class="btn btn-outline-success btn-sm"><i class="fa-regular fa-circle-check"></i></button>
+                                        <a href="" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteBooking_{{$booking->booking_id}}"><i class="fa-regular fa-circle-xmark"></i></a>
+                                    </td>
+                                </tr>
+                            </form>
                         </tbody>
+
+                        @include('employee.componentEmp.modal.unConfirmedModal')
+                        @include('employee.componentEmp.modal.deleteBookingModal')
                     @endforeach
                 @endif
             </table>
@@ -47,7 +53,9 @@
         </div>
         <div class="col-lg-1"></div>
     </div>
+
     <hr>
+
     <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
@@ -69,24 +77,30 @@
                     @php $stt = 1; @endphp
                     @foreach ($confirmed as $booking)
                         <tbody>
-                            <tr class="table-secondary">
-                                <td class="text-center">{{ $stt++ }}</td>
-                                <td class="text-center">{{ $booking->customer->fullname }}</td>
-                                @foreach ($booking->bookingDetail as $bookingDetail)
-                                    <td class="text-center">{{ $bookingDetail->room->room_name }}</td>
-                                @endforeach
-                                <td class="text-center">{{ $booking->formatted_booking_date }}</td>
-                                <td class="text-center">{{ $booking->request }}</td>
-                                <td class="text-center">{{ number_format($booking->total_amount, 0, ',', '.') }}đ</td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-list"></i></a>
-                                </td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-outline-success btn-sm"><i class="fa-regular fa-circle-check"></i></a>
-                                    <a href="" class="btn btn-outline-danger btn-sm"><i class="fa-regular fa-circle-xmark"></i></a>
-                                </td>
-                            </tr>
+                            <form action="{{ route('checkIn', ['booking_id' => $booking]) }}" method="post">
+                                @csrf
+                                <tr class="table-secondary">
+                                    <td class="text-center">{{ $stt++ }}</td>
+                                    <td class="text-center">{{ $booking->customer->fullname }}</td>
+                                    @foreach ($booking->bookingDetail as $bookingDetail)
+                                        <td class="text-center">{{ $bookingDetail->room->room_name }}</td>
+                                    @endforeach
+                                    <td class="text-center">{{ $booking->formatted_booking_date }}</td>
+                                    <td class="text-center">{{ $booking->request }}</td>
+                                    <td class="text-center">{{ number_format($booking->total_amount, 0, ',', '.') }}đ</td>
+                                    <td class="text-center">
+                                        <a href="" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#confirmedBooking_{{$booking->booking_id}}"><i class="fa-solid fa-list"></i></a>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="submit" class="btn btn-outline-success btn-sm"><i class="fa-regular fa-circle-check"></i></button>
+                                        <a href="" class="btn btn-outline-danger btn-sm"><i class="fa-regular fa-circle-xmark"></i></a>
+                                    </td>
+                                </tr>
+                            </form>
                         </tbody>
+
+                        @include('employee.componentEmp.modal.confirmedModal')
+
                     @endforeach
                 @endif
             </table>

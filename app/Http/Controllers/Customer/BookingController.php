@@ -40,15 +40,26 @@ class BookingController extends Controller
         $dateTo = Carbon::parse("$date_to");
         $time_diff = $dateFrom->diffInDays($dateTo);
 
-        if($time_from ==  '21:00' && $time_to == '11:00') {
-            $room_price = $room->roomType->overnight_price;
-        } else if ($time_from ==  '10:00' && $time_to == '12:00') {
-            $room_price = $room->roomType->daily_price;
+        if ($time_from ==  '21:00' && $time_to == '10:00' && $time_diff > 1) {
+            $total_amount = $room->roomType->overnight_price + (($time_diff-1) * $room->roomType->daily_price);
+        } else if ($time_from ==  '21:00' && $time_to == '10:00' && $time_diff == 1) {
+            $total_amount = $room->roomType->overnight_price;
+        } else if ($time_from ==  '12:00' && $time_to == '10:00') {
+            $total_amount = $time_diff * $room->roomType->daily_price;
         } else {
-            $room_price = $room->roomType->hourly_price;
+            $total_amount = $room->roomType->hourly_price;
         }
 
-        $total_amount = $time_diff * $room_price; /**Tổng tiền */
+        // if($time_from ==  '21:00' && $time_to == '10:00') {
+        //     if ()
+        //     $room_price = $room->roomType->overnight_price;
+        // } else if ($time_from ==  '12:00' && $time_to == '10:00') {
+        //     $room_price = $room->roomType->daily_price;
+        // } else {
+        //     $room_price = $room->roomType->hourly_price;
+        // }
+
+        // $total_amount = $time_diff * $room_price; /**Tổng tiền */
         
         $booking_date = Carbon::now()->format('Y-m-d');
 
@@ -59,6 +70,8 @@ class BookingController extends Controller
             'booking_date' => $booking_date,
             'total_amount' => $total_amount,
             'request' => $request->input('request'),
+            'pay' => null,
+            'status' => 'Chờ xác nhận',
             'customer_id' => $customer_id,
             'employee_id' => null,
         ];

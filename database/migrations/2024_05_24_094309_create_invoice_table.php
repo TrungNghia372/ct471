@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoice', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('invoice_id');
+            $table->date('date');
+            $table->integer('total_amount');
             $table->timestamps();
         });
     }

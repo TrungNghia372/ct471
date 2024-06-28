@@ -13,6 +13,8 @@ class Booking extends Model
         'booking_date',
         'total_amount',
         'request',
+        'pay',
+        'status',
         'customer_id',
         'employee_id',
     ];
@@ -41,5 +43,9 @@ class Booking extends Model
 
     public function bookingDetail() {
         return $this->hasMany(BookingDetail::class, 'booking_id');
+    }
+
+    public function invoice() {
+        return $this->belongsTo(Invoice::class);
     }
 }

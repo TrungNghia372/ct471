@@ -29,7 +29,7 @@
                                 <i class="fa-solid fa-envelope me-2"></i>
                             </div>
                             <div class="col-md-11">
-                                <p>...@gmail.com</p>
+                                <p>hometn372@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -40,10 +40,10 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-6 col-xs-12 text-center mt-5">
                                         <h4 class="mb-4">Phòng</h4>
-                                        <p><a class="nav-link text-black" href="#">...</a></p>
-                                        <p><a class="nav-link text-black" href="#">...<a></p>
-                                        <p><a class="nav-link text-black" href="#">...</a></p>
-                                        <p><a class="nav-link text-black" href="#">...</a></p>
+                                        <p><a class="nav-link text-black" href="#"></a>Standard</p>
+                                        <p><a class="nav-link text-black" href="#"><a>Superior</p>
+                                        <p><a class="nav-link text-black" href="#"></a>Deluxe</p>
+                                        <p><a class="nav-link text-black" href="#">Suite</a></p>
                                     </div>
             
                                     <div class="col-lg-6 col-sm-6 col-xs-12 mt-5 text-center">
@@ -65,7 +65,7 @@
                                         <h4 class="mb-4">Mạng Xã Hội</h4>
             
                                         <div class="row">
-                                            <p><a class="nav-link" href="https://www.cactustn.com/"><i class="fa-solid fa-globe me-2"></i>www.....com</a></p>
+                                            <p><a class="nav-link" href="https://www.cactustn.com/"><i class="fa-solid fa-globe me-2"></i>www.hometn372.com</a></p>
                                         </div>
                     
                                         <div class="row">
@@ -85,19 +85,27 @@
                                     <div class="col-lg-6 col-sm-6 col-xs-12 mt-5 text-center">
                                         <h4 class="mb-4">Dịch Vụ</h4>
                                         <div class="row">
-                                            <p><i class="fa-solid fa-award me-2"></i>...</p>
+                                            <p>
+                                                {{-- <i class="fa-solid fa-award me-2"></i> --}}
+                                            Giặt ủi</p>
                                         </div>
                     
                                         <div class="row">
-                                            <p><i class="fa-solid fa-truck-fast me-2"></i>...</p>
+                                            <p>
+                                                {{-- <i class="fa-solid fa-truck-fast me-2"></i> --}}
+                                            Thuê phương tiện</p>
                                         </div>
                     
                                         <div class="row">
-                                            <p><i class="fa-solid fa-rotate me-2"></i>...</p>
+                                            <p>
+                                                {{-- <i class="fa-solid fa-rotate me-2"></i> --}}
+                                            Đưa đón</p>
                                         </div>
                     
                                         <div class="row">
-                                            <p><i class="fa-solid fa-gift me-2"></i>...</p>
+                                            <p>
+                                                {{-- <i class="fa-solid fa-gift me-2"></i> --}}
+                                            Chăm sóc thú cưng</p>
                                         </div>
                                     </div>   
                                 </div>                     

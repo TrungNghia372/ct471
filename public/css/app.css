@@ -148,6 +148,15 @@ p.max-h  {
     max-width: 100%;
 }
 
+.truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.table .col-name {
+    max-width: 300px;
+}
+
 .fixed-header {
     position: fixed;
     top: 0;
@@ -168,7 +177,7 @@ p.max-h  {
     color: black !important;
 }
 .use {
-    background-color: rgba(0, 128, 0, 0.700) !important;
+    background-color: rgba(39, 150, 85, 0.700) !important;
     color: black !important;
 }
 .maintenance {
@@ -178,4 +187,21 @@ p.max-h  {
 .clearUp {
     background-color: rgba(153, 205, 50, 0.700) !important;
     color: black !important;
+}
+.btn-order {
+    background-color: rgba(255, 68, 0, 0.700) !important;
+    color: white !important;
+}
+.btn-order:hover {
+    background-color: rgba(255, 68, 0, 0.900) !important;
+    color: white !important;
+}
+
+.bg-gray {
+    background-color: #dddddd;
+}
+
+.pay {
+    max-width: 350px;
+    width: 100%;
 }

@@ -288,8 +288,8 @@
         } else if (selectedValue === "daily") {
             priceElement.setAttribute('value', dailyPrice);
 
-            timeFrom.value = '10:00';
-            timeTo.value = '12:00';
+            timeFrom.value = '12:00';
+            timeTo.value = '10:00';
             timeFrom.readOnly = true;
             timeTo.readOnly = true;
         }

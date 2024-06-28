@@ -16,7 +16,8 @@ return new class extends Migration
             $table->date('booking_date');
             $table->integer('total_amount');
             $table->string('request')->nullable();
-            // $table->enum('status', ['Chờ xác nhận', 'Đã xác nhận', 'Đã nhận phòng', 'Đã thanh toán']);
+            $table->integer('pay')->nullable();
+            $table->enum('status', ['Chờ xác nhận', 'Đã xác nhận', 'Đã nhận phòng', 'Đã thanh toán']);
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('employee_id')->nullable();
             $table->foreign('customer_id')->references('customer_id')->on('customer');

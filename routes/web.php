@@ -14,8 +14,11 @@ use App\Http\Controllers\Backend\ConfirmController;
 use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\Customer\BookingController;
 
-use App\Http\Controllers\Employee\CustMgmtOfEmpController;
 use App\Http\Controllers\Employee\EmpIfController;
+use App\Http\Controllers\Employee\CustMgmtOfEmpController;
+use App\Http\Controllers\Employee\ConfirmBookingController;
+use App\Http\Controllers\Employee\RoomDiagramController;
+
 
 
 
@@ -145,13 +148,26 @@ Route::get('dashboard/index', [DashboardController::class, 'index'])->name('dash
 /**Employee Interface */
     /**Room diagram */
     Route::get('goRoomDiagram', [EmpIfController::class, 'goRoomDiagram'])->name('goRoomDiagram');
+    
     /**Booking */
-    Route::get('goBooking', [EmpIfController::class, 'goBooking'])->name('goBooking');
+    Route::get('goBooking', [EmpIfController::class, 'goBooking'])->name('goBookingEmp');
+    
     /**Customer Mgmt */
     Route::get('customerList', [EmpIfController::class, 'goCustomerList'])->name('goCustomerList');
+
     Route::post('customerList', [CustMgmtOfEmpController::class, 'insert'])->name('insertCust');
     Route::post('customerList/{customer_id}', [CustMgmtOfEmpController::class, 'edit'])->name('editCust');
     Route::delete('customerList/{customer_id}', [CustMgmtOfEmpController::class, 'delete'])->name('deleteCust');
     
+    /**Confirm */
+    Route::post('confirm/{booking_id}', [ConfirmBookingController::class, 'confirm'])->name('confirmEmp');
+    Route::delete('confirm/{booking_id}', [ConfirmBookingController::class, 'delete'])->name('deleteBookingEmp');
 
+    Route::post('checkIn/{booking_id}', [ConfirmBookingController::class, 'checkIn'])->name('checkIn');
 
+    Route::post('maintenanceCompleted/{room_id}', [RoomDiagramController::class, 'maintenanceCompleted'])->name('maintenanceCompleted');
+    Route::post('clearUp/{room_id}', [RoomDiagramController::class, 'clearUp'])->name('clearUp');
+    Route::post('check_in/{room_id}', [RoomDiagramController::class, 'check_in'])->name('check_in');
+
+    Route::post('handle/{room_id}', [RoomDiagramController::class, 'handle'])->name('handle');
+    

@@ -17,12 +17,31 @@ class EmpIfController extends Controller
     }
 
     public function goRoomDiagram() {
-        $rooms = Room::all();
+        $rooms = Room::with([
+            'roomType',
+            'bookingDetail.booking.customer',
+        ])->get();
+        $customers = Customer::all();
+
+        $roomsInUseOrReserved = $rooms->filter(function($room) {
+            return $room->status === 'Đang sử dụng' || $room->status === 'Đã đặt trước';
+        });
+
+        foreach ($roomsInUseOrReserved as $room) {
+            foreach ($room->bookingDetail as $bookingDetail) {
+                $booking = $bookingDetail->booking;
+                $customer = $booking->customer;
+
+                $booking->formatted_date_from = Carbon::parse($bookingDetail->date_from)->format('d/m/Y H:i');
+                $booking->formatted_date_to = Carbon::parse($bookingDetail->date_to)->format('d/m/Y H:i');
+            }
+        }
 
         $employeeIf = 'employee.page.roomDiagram';
         return view('employee.indexEmp', compact(
             'employeeIf',
             'rooms',
+            'customers',
         ));
     }
 
@@ -32,22 +51,38 @@ class EmpIfController extends Controller
             'employee',
             'bookingDetail.room.roomType',
             'bookingDetail.room.roomImage',
-        )->whereNull('employee_id')->paginate(10);
+        )->whereNull('employee_id')->paginate(10);        
+
+        foreach ($unConfirmed as $booking) {
+            $booking->formatted_booking_date = Carbon::parse($booking->booking_date)->format('d/m/Y');
+            $booking->formatted_date_of_birth = Carbon::parse($booking->customer->date_of_birth)->format('d/m/Y');
+
+            foreach ($booking->bookingDetail as $bookingDetail) {
+                $booking->formatted_date_from = Carbon::parse($bookingDetail->date_from)->format('d/m/Y');
+                $booking->formatted_date_to = Carbon::parse($bookingDetail->date_to)->format('d/m/Y');
+            }
+            
+        }
 
         $confirmed= Booking::with(
             'customer',
             'employee',
             'bookingDetail.room.roomType',
             'bookingDetail.room.roomImage',
-        )->whereNotNull('employee_id')->paginate(10);
+        )->where('status', 'Đã xác nhận')->paginate(10);
         
-        foreach ($unConfirmed as $booking) {
-            $booking->formatted_booking_date = Carbon::parse($booking->booking_date)->format('d/m/Y');
-        }
         foreach ($confirmed as $booking) {
             $booking->formatted_booking_date = Carbon::parse($booking->booking_date)->format('d/m/Y');
+            $booking->formatted_date_of_birth = Carbon::parse($booking->customer->date_of_birth)->format('d/m/Y');
+
+            foreach ($booking->bookingDetail as $bookingDetail) {
+                $booking->formatted_date_from = Carbon::parse($bookingDetail->date_from)->format('d/m/Y');
+                $booking->formatted_date_to = Carbon::parse($bookingDetail->date_to)->format('d/m/Y');
+            }
+            
         }
         
+
         $employeeIf = 'employee.page.booking';
         return view('employee.indexEmp', compact(
             'employeeIf',

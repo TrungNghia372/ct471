@@ -37,12 +37,7 @@
 
                                 <div class="row border-bottom">
                                     <small>
-                                        <strong>Trạng thái: </strong>
-                                            @if ($booking->employee_id == null)
-                                                Chờ xác nhận
-                                            @else 
-                                                Đã xác nhận
-                                            @endif <br>
+                                        <strong>Trạng thái: </strong> {{$booking->status}}
                                     </small>
                                 </div>
 
@@ -79,7 +74,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

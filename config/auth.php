@@ -64,6 +64,10 @@ return [
             'driver' => 'session',
             'provider' => 'bookingdetail',
         ],
+        'invoice' => [
+            'driver' => 'session',
+            'provider' => 'invoice',
+        ],
     ],
 
     /*
@@ -111,6 +115,10 @@ return [
         'bookingdetails' => [
             'driver' => 'eloquent',
             'model' => App\Models\BookingDetail::class,
+        ],
+        'invoices' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Invoice::class,
         ],
 
         // 'users' => [
